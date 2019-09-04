@@ -114,8 +114,8 @@
 			isa = PBXGroup;
 			children = (
 				CED1934A231930D2009B0E80 /* Note.swift */,
-				CED1934C23193116009B0E80 /* FileNotebook.swift */,
 				CED1934E23193153009B0E80 /* NotesExtencion.swift */,
+				CED1934C23193116009B0E80 /* FileNotebook.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

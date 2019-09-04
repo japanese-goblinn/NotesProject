@@ -10,7 +10,7 @@ import UIKit
 
 class AllNotesViewController: UIViewController {
     
-    let notes: [Note] = [Note(uid: "qw1", title: "note", content: "some text", date: nil)]
+    let notes: [Note] = [Note(title: "Some title", content: "Some content", date: nil)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ extension AllNotesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
-        cell.textLabel?.text = notes[indexPath.row].title
+        cell.textLabel?.text = notes[indexPath.row].uid
         return cell
     }
     

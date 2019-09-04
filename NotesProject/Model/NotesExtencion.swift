@@ -62,7 +62,13 @@ extension Note {
         let convertFromJSON = DateFormatter()
         convertFromJSON.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let date = convertFromJSON.date(from: dateFromJSON)
-        return Note(uid: uid, title: title, content: content, date: date, color: color, priority: priority)
+        return Note(title: title,
+                    content: content,
+                    date: date,
+                    uid: uid,
+                    color: color,
+                    priority: priority
+        )
     }
     
 }

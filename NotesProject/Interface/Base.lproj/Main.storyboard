@@ -75,10 +75,10 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="53h-WK-g9O">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="399"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="396.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OVN-lL-2e8">
-                                                <rect key="frame" x="19" y="20" width="375" height="364"/>
+                                                <rect key="frame" x="19" y="20" width="375" height="361.5"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title for your note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r3d-5Z-ptt">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
@@ -94,18 +94,18 @@
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="vKX-JZ-06p">
-                                                        <rect key="frame" x="0.0" y="253.5" width="375" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="253.5" width="375" height="18"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Destroy Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJ8-6v-D3N">
-                                                                <rect key="frame" x="0.0" y="0.0" width="139" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="124.5" height="18"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Erg-Fn-In4">
-                                                        <rect key="frame" x="0.0" y="284" width="375" height="0.0"/>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Erg-Fn-In4">
+                                                        <rect key="frame" x="0.0" y="281.5" width="375" height="0.0"/>
                                                         <subviews>
                                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="M7r-oN-2dq">
                                                                 <rect key="frame" x="0.0" y="-108" width="375" height="216"/>
@@ -122,8 +122,8 @@
                                                             <constraint firstItem="M7r-oN-2dq" firstAttribute="leading" secondItem="Erg-Fn-In4" secondAttribute="leading" id="Q0u-Er-o4E"/>
                                                         </constraints>
                                                     </view>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="VYb-9j-ehQ">
-                                                        <rect key="frame" x="0.0" y="294" width="375" height="70"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VYb-9j-ehQ">
+                                                        <rect key="frame" x="0.0" y="291.5" width="375" height="70"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Obz-BT-zhy" customClass="PaletteView" customModule="NotesProject" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
@@ -177,7 +177,7 @@
                                                 </subviews>
                                             </stackView>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CQd-TU-gRM">
-                                                <rect key="frame" x="181" y="268.5" width="51" height="31"/>
+                                                <rect key="frame" x="166.5" y="267" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="enableSwitch:" destination="89t-FQ-9iR" eventType="valueChanged" id="wn3-gK-CCb"/>
                                                 </connections>

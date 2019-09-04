@@ -23,13 +23,18 @@ struct Note {
     let priority: Priority
     let date: Date?
     
-    init(uid: String, title: String, content: String, date: Date?, color: UIColor = UIColor.white, priority: Priority = Priority.general) {
-        self.uid = uid
+    init(title: String,
+         content: String,
+         date: Date?,
+         uid: String = UUID().uuidString,
+         color: UIColor = UIColor.white,
+         priority: Priority = Priority.general) {
         self.title = title
         self.content = content
+        self.date = date
+        self.uid = uid
         self.color = color
         self.priority = priority
-        self.date = date
     }
     
 }

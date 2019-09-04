@@ -18,7 +18,6 @@ class FileNotebook {
         } else {
             for loopNote in notes {
                 if loopNote.uid == note.uid {
-                    print("already exists")
                     return
                 }
             }
@@ -52,7 +51,11 @@ class FileNotebook {
             }
         }
         else {
-            try? FileManager.default.createDirectory(at: dirUrl, withIntermediateDirectories: true, attributes: nil)
+            try? FileManager.default.createDirectory(
+                at: dirUrl,
+                withIntermediateDirectories: true,
+                attributes: nil
+            )
             print("creating directory...")
         }
     }

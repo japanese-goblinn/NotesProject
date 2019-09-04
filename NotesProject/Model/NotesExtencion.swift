@@ -76,12 +76,13 @@ extension Note {
             date = nil
         }
         
-        return Note(title: title,
-                    content: content,
-                    date: date,
-                    uid: uid,
-                    color: color,
-                    priority: priority
+        return Note(
+            title: title,
+            content: content,
+            date: date,
+            uid: uid,
+            color: color,
+            priority: priority
         )
     }
     

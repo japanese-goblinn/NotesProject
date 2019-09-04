@@ -21,17 +21,17 @@ struct Note {
     let content: String
     let color: UIColor
     let priority: Priority
-    let date: Date?
+    let selfDestructionDate: Date?
     
     init(title: String,
          content: String,
          date: Date?,
          uid: String = UUID().uuidString,
-         color: UIColor = UIColor.white,
-         priority: Priority = Priority.general) {
+         color: UIColor = .white,
+         priority: Priority = .general) {
         self.title = title
         self.content = content
-        self.date = date
+        self.selfDestructionDate = date
         self.uid = uid
         self.color = color
         self.priority = priority

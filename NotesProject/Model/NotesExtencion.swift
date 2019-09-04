@@ -12,56 +12,70 @@ import UIKit
 extension Note {
     
     var json: [String: Any] {
+        
         var jsonObject = [String: Any]()
-        if self.color == UIColor.white {
-            return jsonObject
+        
+        jsonObject["uid"] = uid
+        jsonObject["title"] = title
+        jsonObject["content"] = content
+        
+        if color != .white {
+            var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
+            color.getRed(&r, green: &g, blue: &b, alpha: &a)
+            jsonObject["color"] = [r, g, b, a]
         }
-        if self.priority == Priority.general {
-            return jsonObject
+        
+        if priority != .general {
+            jsonObject["priority"] = priority.rawValue
         }
-        jsonObject["uid"] = self.uid
-        jsonObject["title"] = self.title
-        jsonObject["content"] = self.content
-        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
-        self.color.getRed(&r, green: &g, blue: &b, alpha: &a)
-        jsonObject["color"] = [r, g, b, a]
-        jsonObject["priority"] = self.priority.rawValue
-        if let dateToSave = self.date {
+        
+        if let date = selfDestructionDate {
             let dateToString = DateFormatter()
             dateToString.dateFormat = "yyyy-MM-dd HH:mm:ss"
-            jsonObject["date"] = dateToString.string(from: dateToSave)
+            jsonObject["selfDestructionDate"] = dateToString.string(from: date)
         } else {
-            jsonObject["date"] = nil
+            jsonObject["selfDestructionDate"] = nil
         }
+        
         return jsonObject
     }
     
     static func parse(json: [String: Any]) -> Note? {
-        guard let uid = json["uid"] as? String else {
-            return nil
+        guard
+            let uid = json["uid"] as? String,
+            let title = json["title"] as? String,
+            let content = json["content"] as? String else {
+                return nil
         }
-        guard let title = json["title"] as? String else {
-            return nil
+        
+        var color: UIColor
+        if let colorFromJSON = json["color"] as? [CGFloat] {
+            color = UIColor(
+                displayP3Red: colorFromJSON[0],
+                green: colorFromJSON[1],
+                blue: colorFromJSON[2],
+                alpha: colorFromJSON[3]
+            )
+        } else {
+            color = .white
         }
-        guard let content = json["content"] as? String else {
-            return nil
+        
+        var priority: Priority
+        if let priorityFromJSON = json["priority"] as? String {
+            priority = Priority(rawValue: priorityFromJSON)!
+        } else {
+            priority = .general
         }
-        guard let colorFromJSON = json["color"] as? [CGFloat] else {
-            return nil
+        
+        var date: Date?
+        if let dateFromJSON = json["selfDestructionDate"] as? String {
+            let convertFromJSON = DateFormatter()
+            convertFromJSON.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            date = convertFromJSON.date(from: dateFromJSON)
+        } else {
+            date = nil
         }
-        let color = UIColor(
-            displayP3Red: colorFromJSON[0],
-            green: colorFromJSON[1],
-            blue: colorFromJSON[2],
-            alpha: colorFromJSON[3]
-        )
-        guard let priority = Priority(rawValue: json["priority"] as! String) else {
-            return nil
-        }
-        let dateFromJSON = json["date"] as! String
-        let convertFromJSON = DateFormatter()
-        convertFromJSON.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let date = convertFromJSON.date(from: dateFromJSON)
+        
         return Note(title: title,
                     content: content,
                     date: date,

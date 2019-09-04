@@ -104,7 +104,7 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Erg-Fn-In4">
+                                                    <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Erg-Fn-In4">
                                                         <rect key="frame" x="0.0" y="284" width="375" height="0.0"/>
                                                         <subviews>
                                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="M7r-oN-2dq">
@@ -204,6 +204,7 @@
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="3tS-Or-9vu" firstAttribute="leading" secondItem="vRQ-Em-qBd" secondAttribute="leading" id="35r-mM-DEb"/>
                             <constraint firstItem="3tS-Or-9vu" firstAttribute="top" secondItem="vRQ-Em-qBd" secondAttribute="top" id="gST-YQ-uC7"/>
@@ -211,13 +212,18 @@
                             <constraint firstItem="vRQ-Em-qBd" firstAttribute="bottom" secondItem="3tS-Or-9vu" secondAttribute="bottom" id="t5D-Cq-fhw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vRQ-Em-qBd"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="NWb-r8-m9U" appends="YES" id="RvK-bs-DOc"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="zDv-Hs-a9v"/>
                     <connections>
+                        <outlet property="contentTextView" destination="IUs-uX-ae8" id="9Cr-xl-L4y"/>
                         <outlet property="datePicker" destination="M7r-oN-2dq" id="mf2-ZJ-JfV"/>
                         <outlet property="firstColor" destination="Obz-BT-zhy" id="jYf-SF-g4F"/>
                         <outlet property="pickerContainerView" destination="Erg-Fn-In4" id="CKY-ez-k2d"/>
                         <outlet property="scrollView" destination="3tS-Or-9vu" id="cVW-5Y-ee1"/>
+                        <outlet property="titleTextField" destination="r3d-5Z-ptt" id="acl-Dd-Zde"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UEg-3o-NRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -239,6 +245,12 @@
                 <tapGestureRecognizer id="FOD-RN-HGE">
                     <connections>
                         <action selector="chooseThirdColor:" destination="89t-FQ-9iR" id="od9-sg-13E"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="NWb-r8-m9U">
+                    <connections>
+                        <action selector="hideKeyboard:" destination="89t-FQ-9iR" id="50g-Vx-abP"/>
+                        <outlet property="delegate" destination="OVN-lL-2e8" id="vXi-wN-WIr"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

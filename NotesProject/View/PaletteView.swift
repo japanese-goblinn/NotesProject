@@ -18,7 +18,7 @@ class PaletteView: UIView {
     override func draw(_ rect: CGRect) {
         drawBorders()
         if isGradient {
-            makeGradient(rect)
+            Color.drawGradient(for: self, with: rect)
         }
         if isChosen {
             drawFlag(rect)
@@ -26,7 +26,7 @@ class PaletteView: UIView {
     }
     
     private func drawBorders() {
-        self.layer.borderWidth = 1
+        self.layer.borderWidth = 2
         self.layer.borderColor = UIColor.black.cgColor
     }
     
@@ -40,20 +40,5 @@ class PaletteView: UIView {
             UIColor.white.setStroke()
         }
         path.stroke()
-    }
-    
-    private func makeGradient(_ rect: CGRect) {
-        let context = UIGraphicsGetCurrentContext()
-        for y: CGFloat in stride(from: 0.0 ,to: rect.height, by: 1) {
-            var saturation = y < rect.height / 2.0 ? CGFloat(2 * y) / rect.height : 2.0 * CGFloat(rect.height - y) / rect.height
-            saturation = CGFloat(powf(Float(saturation), y < rect.height / 2.0 ? 2.0 : 1.3))
-            let brightness = y < rect.height / 2.0 ? CGFloat(1.0) : 2.0 * CGFloat(rect.height - y) / rect.height
-            for x: CGFloat in stride(from: 0.0, to: rect.width, by: 1) {
-                let hue = x / rect.width
-                let color = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1.0)
-                context!.setFillColor(color.cgColor)
-                context!.fill(CGRect(x: x, y: y, width: 1, height: 1))
-            }
-        }
     }
 }

@@ -57,14 +57,15 @@ class NotesDetailViewController: UIViewController {
     }
     
     @IBAction func enableSwitch(_ sender: UISwitch) {
-        UIView.animate(withDuration: 0.3,
-                       delay: 0,
-                       options: .curveEaseOut,
-                       animations: {
-                            self.pickerContainerView.isHidden = !sender.isOn
-                            self.datePicker.isHidden = !sender.isOn
-                        },
-                       completion: nil
+        UIView.animate(
+            withDuration: 0.3,
+            delay: 0,
+            options: .curveEaseOut,
+            animations: {
+                self.pickerContainerView.isHidden = !sender.isOn
+                self.datePicker.isHidden = !sender.isOn
+            },
+            completion: nil
         )
     }
     

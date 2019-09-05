@@ -10,7 +10,13 @@ import UIKit
 
 class ColorPickerViewController: UIViewController {
 
-    @IBOutlet weak var textLabel: UILabel!
+    
+    @IBOutlet weak var currentColorPaletteView: PaletteView!
+    @IBOutlet weak var colorPicker: ColorPickerView!
+    
+    @IBAction func pickerTapped(_ sender: UITapGestureRecognizer) {
+        
+    }
     
     @IBAction func dismiss(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
@@ -18,6 +24,13 @@ class ColorPickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let color = colorPicker.getColor(for: touch)
+            currentColorPaletteView.backgroundColor = color
+        }
     }
 
 }

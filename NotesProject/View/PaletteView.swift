@@ -14,15 +14,15 @@ class PaletteView: UIView {
     
     @IBInspectable var isChosen: Bool = false
     @IBInspectable var isGradient: Bool = false
-    @IBInspectable var isRoundetCorners: Bool = false
+    @IBInspectable var isRoundedCorners: Bool = false
     
     override func draw(_ rect: CGRect) {
-        if isRoundetCorners {
+        if isRoundedCorners {
             clipsToBounds = true
             layer.cornerRadius = 11
         }
         if isGradient {
-            drawGradient(with: rect)
+            ColorPickerView.drawGradient(for: self, with: rect)
         }
         if isChosen {
             drawFlag(rect)
@@ -31,8 +31,8 @@ class PaletteView: UIView {
     }
     
     private func drawBorders() {
-        self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor.black.cgColor
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.black.cgColor
     }
     
     private func drawFlag(_ rect: CGRect) {

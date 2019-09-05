@@ -16,8 +16,6 @@ protocol HSBColorPickerDelegate : NSObjectProtocol {
 @IBDesignable
 class ColorPickerView: UIView {
     
-    @IBInspectable var color: UIColor!
-    
     static var colorSpace = CGColorSpaceCreateDeviceRGB()
     
     override func draw(_ rect: CGRect) {
@@ -26,8 +24,7 @@ class ColorPickerView: UIView {
         layer.borderColor = UIColor.black.cgColor
     }
     
-    func getColor(for touch: UITouch) -> UIColor {
-        let point = touch.location(in: self)
+    func getColor(in point: CGPoint) -> UIColor {
         let pixel = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: 4)
         let bitmapInfo = CGBitmapInfo(
             rawValue: CGImageAlphaInfo.premultipliedLast.rawValue
@@ -44,9 +41,9 @@ class ColorPickerView: UIView {
         context.translateBy(x: -point.x, y: -point.y)
         self.layer.render(in: context)
         let color = UIColor(
-            red:   CGFloat(pixel[0]) / 255.0,
+            red: CGFloat(pixel[0]) / 255.0,
             green: CGFloat(pixel[1]) / 255.0,
-            blue:  CGFloat(pixel[2]) / 255.0,
+            blue: CGFloat(pixel[2]) / 255.0,
             alpha: CGFloat(pixel[3]) / 255.0
         )
         pixel.deallocate()
@@ -54,7 +51,6 @@ class ColorPickerView: UIView {
     }
     
     static func drawGradient(for view: UIView, with rect: CGRect) {
-        
         let context = UIGraphicsGetCurrentContext()
         let rainbowColors = [
             UIColor.red.cgColor,
@@ -94,6 +90,4 @@ class ColorPickerView: UIView {
             options: []
         )
     }
-    
-    
 }

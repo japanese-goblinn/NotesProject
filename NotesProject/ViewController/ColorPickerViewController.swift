@@ -15,7 +15,9 @@ class ColorPickerViewController: UIViewController {
     @IBOutlet weak var colorPicker: ColorPickerView!
     
     @IBAction func pickerTapped(_ sender: UITapGestureRecognizer) {
-        
+        let point = sender.location(in: colorPicker)
+        let color = colorPicker.getColor(in: point)
+        currentColorPaletteView.backgroundColor = color
     }
     
     @IBAction func dismiss(_ sender: UIButton) {
@@ -25,12 +27,4 @@ class ColorPickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            let color = colorPicker.getColor(for: touch)
-            currentColorPaletteView.backgroundColor = color
-        }
-    }
-
 }

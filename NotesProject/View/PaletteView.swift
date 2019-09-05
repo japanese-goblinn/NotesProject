@@ -14,15 +14,20 @@ class PaletteView: UIView {
     
     @IBInspectable var isChosen: Bool = false
     @IBInspectable var isGradient: Bool = false
+    @IBInspectable var isRoundetCorners: Bool = false
     
     override func draw(_ rect: CGRect) {
-        drawBorders()
+        if isRoundetCorners {
+            clipsToBounds = true
+            layer.cornerRadius = 11
+        }
         if isGradient {
-            Color.drawGradient(for: self, with: rect)
+            drawGradient(with: rect)
         }
         if isChosen {
             drawFlag(rect)
         }
+        drawBorders()
     }
     
     private func drawBorders() {

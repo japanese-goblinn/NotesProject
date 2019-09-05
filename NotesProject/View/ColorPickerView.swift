@@ -9,10 +9,13 @@
 import UIKit
 import CoreGraphics
 
-class Color {
-    static func drawGradient(for view: UIView, with rect: CGRect) {
+extension UIView {
+    func drawGradient(with rect: CGRect) {
+        
         let context = UIGraphicsGetCurrentContext()
-        let colors = [
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        
+        let rainbowColors = [
             UIColor.red.cgColor,
             UIColor.orange.cgColor,
             UIColor.yellow.cgColor,
@@ -22,23 +25,46 @@ class Color {
             UIColor.purple.cgColor,
             UIColor.red.cgColor
         ]
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let gradient = CGGradient(
+        
+        let whiteColors = [
+            UIColor(white: 1, alpha: 0).cgColor,
+            UIColor(white: 1, alpha: 0.3).cgColor,
+            UIColor(white: 1, alpha: 1).cgColor
+        ]
+        
+        
+        let whiteGradient = CGGradient(
             colorsSpace: colorSpace,
-            colors: colors as CFArray,
+            colors: whiteColors as CFArray,
             locations: nil
-            )!
-        let startPoint = CGPoint.zero
-        let endPoint = CGPoint(x: view.bounds.width, y: 0)
+        )!
+        
+        let rainbowGradient = CGGradient(
+            colorsSpace: colorSpace,
+            colors: rainbowColors as CFArray,
+            locations: nil
+        )!
+
         context?.drawLinearGradient(
-            gradient,
-            start: startPoint,
-            end: endPoint,
+            rainbowGradient,
+            start: CGPoint.zero,
+            end: CGPoint(x: self.bounds.width, y: 0),
+            options: []
+        )
+        
+        context?.drawLinearGradient(
+            whiteGradient,
+            start: CGPoint.zero,
+            end: CGPoint(x: 0, y: self.bounds.height),
             options: []
         )
     }   
 }
 
+
+protocol HSBColorPickerDelegate : NSObjectProtocol {
+    func HSBColorColorPickerTouched(sender: ColorPickerView, color: UIColor, point: CGPoint, state: UIGestureRecognizer.State)
+}
 
 @IBDesignable
 class ColorPickerView: UIView {

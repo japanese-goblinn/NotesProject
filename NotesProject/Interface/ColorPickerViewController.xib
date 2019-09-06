@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="colorPicker" destination="8fp-b3-1W2" id="ZLR-pG-BlH"/>
                 <outlet property="currentColorPaletteView" destination="ePP-ND-kVQ" id="iep-ZM-caR"/>
+                <outlet property="slider" destination="hik-dB-3gv" id="Xa8-9N-S6y"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -32,6 +33,9 @@
                 <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hik-dB-3gv">
                     <rect key="frame" x="154" y="160" width="242" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <connections>
+                        <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="iEy-3R-xZm"/>
+                    </connections>
                 </slider>
                 <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ePP-ND-kVQ" customClass="PaletteView" customModule="NotesProject" customModuleProvider="target">
                     <rect key="frame" x="32" y="79" width="106" height="129"/>

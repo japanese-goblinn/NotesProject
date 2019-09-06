@@ -19,12 +19,12 @@ class ColorPickerView: UIView {
             setNeedsDisplay()
         }
     }
-    var valueOfDimming: CGFloat {
+    var valueOfDimming: Float {
         set {
-            dimmingFloat = newValue
+            dimmingFloat = CGFloat(newValue)
         }
         get {
-            return dimmingFloat
+            return Float(dimmingFloat)
         }
     }
     
@@ -43,8 +43,8 @@ class ColorPickerView: UIView {
     private func addDimming(for num: CGFloat) {
         let context = UIGraphicsGetCurrentContext()
         let colors = [
-            UIColor(white: 0, alpha: num).cgColor,
-            UIColor(white: 0, alpha: num).cgColor
+            UIColor(white: 0, alpha: 1 - num).cgColor,
+            UIColor(white: 0, alpha: 1 - num).cgColor
         ]
         let color = CGGradient(
             colorsSpace: ColorPickerView.colorSpace,

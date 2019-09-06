@@ -12,11 +12,18 @@ class ColorPickerViewController: UIViewController {
 
     @IBOutlet weak var currentColorPaletteView: PaletteView!
     @IBOutlet weak var colorPicker: ColorPickerView!
+    @IBOutlet weak var slider: UISlider!
+    
+    private lazy var lastTappedPoint: CGPoint = CGPoint.zero
+    
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        colorPicker.valueOfDimming = sender.value
+        updateCurrentPaletteColor()
+    }
     
     @IBAction func pickerTapped(_ sender: UITapGestureRecognizer) {
-        let point = sender.location(in: colorPicker)
-        let color = colorPicker.getColor(in: point)
-        currentColorPaletteView.backgroundColor = color
+        lastTappedPoint = sender.location(in: colorPicker)
+        updateCurrentPaletteColor()
     }
     
     @IBAction func dismiss(_ sender: UIButton) {
@@ -25,5 +32,12 @@ class ColorPickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        colorPicker.valueOfDimming = slider.value
+        updateCurrentPaletteColor()
+    }
+    
+    private func updateCurrentPaletteColor() {
+        let color = colorPicker.getColor(in: lastTappedPoint)
+        currentColorPaletteView.backgroundColor = color
     }
 }

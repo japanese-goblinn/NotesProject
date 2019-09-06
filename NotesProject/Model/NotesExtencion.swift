@@ -48,7 +48,7 @@ extension Note {
                 return nil
         }
         
-        var color: UIColor
+        let color: UIColor
         if let colorFromJSON = json["color"] as? [CGFloat] {
             color = UIColor(
                 displayP3Red: colorFromJSON[0],
@@ -60,14 +60,14 @@ extension Note {
             color = .white
         }
         
-        var priority: Priority
+        let priority: Priority
         if let priorityFromJSON = json["priority"] as? String {
             priority = Priority(rawValue: priorityFromJSON)!
         } else {
             priority = .general
         }
         
-        var date: Date?
+        let date: Date?
         if let dateFromJSON = json["selfDestructionDate"] as? String {
             let convertFromJSON = DateFormatter()
             convertFromJSON.dateFormat = "yyyy-MM-dd HH:mm:ss"

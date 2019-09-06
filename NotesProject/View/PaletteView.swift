@@ -17,6 +17,7 @@ class PaletteView: UIView {
     @IBInspectable var isRoundedCorners: Bool = false
     
     override func draw(_ rect: CGRect) {
+        super.draw(rect)
         if isRoundedCorners {
             clipsToBounds = true
             layer.cornerRadius = 11

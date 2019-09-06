@@ -17,11 +17,45 @@ protocol HSBColorPickerDelegate : NSObjectProtocol {
 class ColorPickerView: UIView {
     
     static var colorSpace = CGColorSpaceCreateDeviceRGB()
+    private var dimmingFloat: CGFloat = 0 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    var valueOfDimming: CGFloat {
+        set {
+            dimmingFloat = newValue
+        }
+        get {
+            return dimmingFloat
+        }
+    }
     
     override func draw(_ rect: CGRect) {
+        super.draw(rect)
         ColorPickerView.drawGradient(for: self, with: rect)
+        addDimming(for: dimmingFloat)
         layer.borderWidth = 2
         layer.borderColor = UIColor.black.cgColor
+    }
+    
+    private func addDimming(for num: CGFloat) {
+        let context = UIGraphicsGetCurrentContext()
+        let colors = [
+            UIColor(white: 0, alpha: num).cgColor,
+            UIColor(white: 0, alpha: num).cgColor
+        ]
+        let color = CGGradient(
+            colorsSpace: ColorPickerView.colorSpace,
+            colors: colors as CFArray,
+            locations: nil
+        )!
+        context?.drawLinearGradient(
+            color,
+            start: CGPoint.zero,
+            end: CGPoint(x: 0, y: self.bounds.height),
+            options: []
+        )
     }
     
     func getColor(in point: CGPoint) -> UIColor {

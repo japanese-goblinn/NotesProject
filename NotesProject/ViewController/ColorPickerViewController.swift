@@ -10,11 +10,11 @@ import UIKit
 
 class ColorPickerViewController: UIViewController {
 
-    
     @IBOutlet weak var currentColorPaletteView: PaletteView!
     @IBOutlet weak var colorPicker: ColorPickerView!
     
     @IBAction func pickerTapped(_ sender: UITapGestureRecognizer) {
+        colorPicker.valueOfDimming = 0.4
         let point = sender.location(in: colorPicker)
         let color = colorPicker.getColor(in: point)
         currentColorPaletteView.backgroundColor = color

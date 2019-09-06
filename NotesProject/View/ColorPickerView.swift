@@ -9,9 +9,6 @@
 import UIKit
 import CoreGraphics
 
-protocol HSBColorPickerDelegate : NSObjectProtocol {
-    func HSBColorColorPickerTouched(sender: ColorPickerView, color: UIColor, point: CGPoint, state: UIGestureRecognizer.State)
-}
 
 @IBDesignable
 class ColorPickerView: UIView {
@@ -35,6 +32,10 @@ class ColorPickerView: UIView {
         super.draw(rect)
         ColorPickerView.drawGradient(for: self, with: rect)
         addDimming(for: dimmingFloat)
+        drawBorders()
+    }
+    
+    private func drawBorders() {
         layer.borderWidth = 2
         layer.borderColor = UIColor.black.cgColor
     }

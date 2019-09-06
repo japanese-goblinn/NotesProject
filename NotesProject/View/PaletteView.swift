@@ -19,8 +19,7 @@ class PaletteView: UIView {
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         if isRoundedCorners {
-            clipsToBounds = true
-            layer.cornerRadius = 11
+            makeRoundedCorners()
         }
         if isGradient {
             ColorPickerView.drawGradient(for: self, with: rect)
@@ -29,6 +28,11 @@ class PaletteView: UIView {
             drawFlag(rect)
         }
         drawBorders()
+    }
+    
+    private func makeRoundedCorners() {
+        clipsToBounds = true
+        layer.cornerRadius = 11
     }
     
     private func drawBorders() {

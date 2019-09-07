@@ -18,12 +18,29 @@ class ColorPickerViewController: UIViewController {
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         colorPicker.valueOfDimming = sender.value
-        updateCurrentPaletteColor()
+        updateCurrentPaletteColor(for: lastTappedPoint)
+    }
+    
+    @IBAction func pickerDragged(_ sender: UIPanGestureRecognizer) {
+        guard let view = sender.view as? ColorPickerView else { return }
+        let translation = sender.translation(in: colorPicker)
+        let point = sender.location(in: colorPicker)
+        if view.point(inside: point, with: nil) {
+            let (x, y) = view.pickerPosition
+            lastTappedPoint = CGPoint(
+                x: x + translation.x,
+                y: y + translation.y
+            )
+            view.pickerPosition = (lastTappedPoint.x, lastTappedPoint.y)
+            updateCurrentPaletteColor(for: lastTappedPoint)
+            sender.setTranslation(CGPoint.zero, in: colorPicker)
+        }
     }
     
     @IBAction func pickerTapped(_ sender: UITapGestureRecognizer) {
         lastTappedPoint = sender.location(in: colorPicker)
-        updateCurrentPaletteColor()
+        colorPicker.pickerPosition = (lastTappedPoint.x, lastTappedPoint.y)
+        updateCurrentPaletteColor(for: lastTappedPoint)
     }
     
     @IBAction func dismiss(_ sender: UIButton) {
@@ -32,12 +49,15 @@ class ColorPickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //TODO: center picker in colorPickerView
+        lastTappedPoint = colorPicker.center
+        colorPicker.pickerPosition = (lastTappedPoint.x, lastTappedPoint.y)
         colorPicker.valueOfDimming = slider.value
-        updateCurrentPaletteColor()
+        updateCurrentPaletteColor(for: lastTappedPoint)
     }
     
-    private func updateCurrentPaletteColor() {
-        let color = colorPicker.getColor(in: lastTappedPoint)
+    private func updateCurrentPaletteColor(for point: CGPoint) {
+        let color = colorPicker.getColor(in: point)
         currentColorPaletteView.backgroundColor = color
     }
 }

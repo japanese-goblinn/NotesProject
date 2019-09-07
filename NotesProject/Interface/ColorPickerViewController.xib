@@ -71,6 +71,7 @@
                     <gestureRecognizers/>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="bkM-eu-vmW" appends="YES" id="0nf-cc-YqB"/>
+                        <outletCollection property="gestureRecognizers" destination="WLT-XF-Z0b" appends="YES" id="qVJ-rN-x1b"/>
                     </connections>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPB-vm-eZE">
@@ -91,5 +92,10 @@
                 <action selector="pickerTapped:" destination="-1" id="Rg4-UB-fKI"/>
             </connections>
         </tapGestureRecognizer>
+        <panGestureRecognizer minimumNumberOfTouches="1" id="WLT-XF-Z0b">
+            <connections>
+                <action selector="pickerDragged:" destination="-1" id="qdD-0e-I06"/>
+            </connections>
+        </panGestureRecognizer>
     </objects>
 </document>

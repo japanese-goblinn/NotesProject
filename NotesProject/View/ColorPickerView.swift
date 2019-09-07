@@ -10,15 +10,21 @@ import UIKit
 import CoreGraphics
 
 
+//TODO: Global refactor in other class
 @IBDesignable
 class ColorPickerView: UIView {
     
     static var colorSpace = CGColorSpaceCreateDeviceRGB()
+    
+    private var x: CGFloat = 0
+    private var y: CGFloat = 0
+    
     private var dimmingFloat: CGFloat = 0 {
         didSet {
             setNeedsDisplay()
         }
     }
+    
     var valueOfDimming: Float {
         set {
             dimmingFloat = CGFloat(newValue)
@@ -27,12 +33,37 @@ class ColorPickerView: UIView {
             return Float(dimmingFloat)
         }
     }
+    var pickerPosition: (CGFloat, CGFloat) {
+        set {
+            x = newValue.0
+            y = newValue.1
+            setNeedsDisplay()
+        }
+        get {
+            return (x, y)
+        }
+    }
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         ColorPickerView.drawGradient(for: self, with: rect)
         addDimming(for: dimmingFloat)
+        drawPicker(x: x, y: y)
         drawBorders()
+    }
+    
+    private func drawPicker(x: CGFloat, y: CGFloat) {
+        let path = UIBezierPath(
+            arcCenter: CGPoint(x: x, y: y),
+            radius: 12,
+            startAngle: 0,
+            endAngle: 180,
+            clockwise: true
+        )
+        path.lineWidth = 6
+        UIColor.white.setStroke()
+        path.stroke()
+        
     }
     
     private func drawBorders() {

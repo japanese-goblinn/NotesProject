@@ -22,29 +22,57 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noteCell" textLabel="v2m-is-vfM" rowHeight="70" style="IBUITableViewCellStyleDefault" id="MoS-aU-jPg">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noteCell" rowHeight="97" id="MoS-aU-jPg" customClass="NotesTableViewCell" customModule="NotesProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="97"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MoS-aU-jPg" id="odc-9Z-Y52">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="96.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="v2m-is-vfM">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="69.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6YL-eb-kti" customClass="PaletteView" customModule="NotesProject" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="15" width="20" height="20"/>
+                                                    <color key="backgroundColor" red="0.79494938380000002" green="0.1506932218" blue="0.1207086268" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="fix-XH-REn"/>
+                                                        <constraint firstAttribute="width" secondItem="6YL-eb-kti" secondAttribute="height" multiplier="1:1" id="wO6-LL-rZn"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6y-YE-e9X">
+                                                    <rect key="frame" x="48" y="14.5" width="80" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Se4-Ih-7yG">
+                                                    <rect key="frame" x="20" y="43.5" width="374" height="38.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="o6y-YE-e9X" secondAttribute="trailing" constant="286" id="1wI-fw-1xn"/>
+                                                <constraint firstItem="o6y-YE-e9X" firstAttribute="centerY" secondItem="6YL-eb-kti" secondAttribute="centerY" id="FM4-Vf-Lqk"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Se4-Ih-7yG" secondAttribute="bottom" constant="4" id="IIu-Sa-HCH"/>
+                                                <constraint firstItem="6YL-eb-kti" firstAttribute="leading" secondItem="odc-9Z-Y52" secondAttribute="leadingMargin" id="S6a-TB-Ozx"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Se4-Ih-7yG" secondAttribute="trailing" id="ThG-8p-dHQ"/>
+                                                <constraint firstItem="6YL-eb-kti" firstAttribute="top" secondItem="odc-9Z-Y52" secondAttribute="topMargin" constant="4" id="WQo-n4-t5K"/>
+                                                <constraint firstItem="Se4-Ih-7yG" firstAttribute="leading" secondItem="6YL-eb-kti" secondAttribute="leading" id="j73-pl-Lvx"/>
+                                                <constraint firstItem="o6y-YE-e9X" firstAttribute="leading" secondItem="6YL-eb-kti" secondAttribute="trailing" constant="8" id="rrC-NB-GeV"/>
+                                                <constraint firstItem="Se4-Ih-7yG" firstAttribute="top" secondItem="o6y-YE-e9X" secondAttribute="bottom" constant="8" id="zq3-PO-Nki"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="colorView" destination="6YL-eb-kti" id="dSs-I8-6A1"/>
+                                            <outlet property="contentLabel" destination="Se4-Ih-7yG" id="LqO-Ow-y6i"/>
+                                            <outlet property="titleLabel" destination="o6y-YE-e9X" id="eNV-0k-URW"/>
                                             <segue destination="89t-FQ-9iR" kind="show" identifier="showNote" id="Eq4-TD-uGu"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="G9p-Oy-XXe"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="AlN-YT-cfx"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -57,11 +85,22 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Notes" id="pQa-Qs-4Q2"/>
+                    <navigationItem key="navigationItem" title="Notes" id="pQa-Qs-4Q2">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="qK9-Iz-2LA"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8bX-N2-8Di">
+                            <connections>
+                                <action selector="addNoteWithSender:" destination="BYZ-38-t0r" id="0BI-04-x9w"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="dXQ-b5-v2n" id="O4p-qu-IqP"/>
+                        <segue destination="89t-FQ-9iR" kind="show" identifier="showNewNote" id="Faf-Fn-U9Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1672" y="127"/>
+            <point key="canvasLocation" x="1671.0144927536232" y="126.5625"/>
         </scene>
         <!--Item-->
         <scene sceneID="78v-09-1g6">
@@ -75,10 +114,10 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="53h-WK-g9O">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="396.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="246"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OVN-lL-2e8">
-                                                <rect key="frame" x="19" y="20" width="375" height="361.5"/>
+                                                <rect key="frame" x="19" y="20" width="375" height="211"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title for your note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r3d-5Z-ptt">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
@@ -87,14 +126,13 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IUs-uX-ae8">
-                                                        <rect key="frame" x="0.0" y="50" width="375" height="183.5"/>
+                                                        <rect key="frame" x="0.0" y="50" width="375" height="33"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="vKX-JZ-06p">
-                                                        <rect key="frame" x="0.0" y="253.5" width="375" height="18"/>
+                                                        <rect key="frame" x="0.0" y="103" width="375" height="18"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Destroy Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJ8-6v-D3N">
                                                                 <rect key="frame" x="0.0" y="0.0" width="124.5" height="18"/>
@@ -105,7 +143,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Erg-Fn-In4">
-                                                        <rect key="frame" x="0.0" y="281.5" width="375" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="131" width="375" height="0.0"/>
                                                         <subviews>
                                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="M7r-oN-2dq">
                                                                 <rect key="frame" x="0.0" y="-108" width="375" height="216"/>
@@ -123,7 +161,7 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VYb-9j-ehQ">
-                                                        <rect key="frame" x="0.0" y="291.5" width="375" height="70"/>
+                                                        <rect key="frame" x="0.0" y="141" width="375" height="70"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Obz-BT-zhy" customClass="PaletteView" customModule="NotesProject" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
@@ -193,7 +231,7 @@
                                                 </subviews>
                                             </stackView>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CQd-TU-gRM">
-                                                <rect key="frame" x="166.5" y="267" width="51" height="31"/>
+                                                <rect key="frame" x="166.5" y="116.5" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="enableSwitch:" destination="89t-FQ-9iR" eventType="valueChanged" id="wn3-gK-CCb"/>
                                                 </connections>
@@ -235,10 +273,13 @@
                     <tabBarItem key="tabBarItem" title="Item" id="zDv-Hs-a9v"/>
                     <connections>
                         <outlet property="contentTextView" destination="IUs-uX-ae8" id="9Cr-xl-L4y"/>
+                        <outlet property="customColor" destination="xUB-Yi-spA" id="hEH-JQ-dIF"/>
                         <outlet property="datePicker" destination="M7r-oN-2dq" id="mf2-ZJ-JfV"/>
                         <outlet property="firstColor" destination="Obz-BT-zhy" id="jYf-SF-g4F"/>
                         <outlet property="pickerContainerView" destination="Erg-Fn-In4" id="CKY-ez-k2d"/>
                         <outlet property="scrollView" destination="3tS-Or-9vu" id="cVW-5Y-ee1"/>
+                        <outlet property="secondColor" destination="mLa-Sb-xk0" id="mAa-po-O9l"/>
+                        <outlet property="thirdColorView" destination="U3q-WN-LvA" id="ZSo-JQ-o4y"/>
                         <outlet property="titleTextField" destination="r3d-5Z-ptt" id="acl-Dd-Zde"/>
                     </connections>
                 </viewController>
@@ -292,4 +333,7 @@
             <point key="canvasLocation" x="842" y="127"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Faf-Fn-U9Q"/>
+    </inferredMetricsTieBreakers>
 </document>

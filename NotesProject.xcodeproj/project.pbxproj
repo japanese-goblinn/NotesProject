@@ -16,11 +16,13 @@
 		CE442E252319AEFC008D31F2 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE442E242319AEFC008D31F2 /* ColorPickerView.swift */; };
 		CE52EC47232510C400D25AC5 /* UIColorHexValueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52EC46232510C400D25AC5 /* UIColorHexValueExtension.swift */; };
 		CE52EC4A2325136000D25AC5 /* ColorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52EC492325136000D25AC5 /* ColorDelegate.swift */; };
+		CE52EC4D232546C500D25AC5 /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52EC4C232546C500D25AC5 /* NotesTableViewCell.swift */; };
+		CE52EC4F232579D100D25AC5 /* PassNoteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52EC4E232579D100D25AC5 /* PassNoteDelegate.swift */; };
 		CEAB782E231AEB0200F3ED83 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB782C231AEB0200F3ED83 /* ColorPickerViewController.swift */; };
 		CEAB782F231AEB0200F3ED83 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAB782D231AEB0200F3ED83 /* ColorPickerViewController.xib */; };
 		CED1934B231930D2009B0E80 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1934A231930D2009B0E80 /* Note.swift */; };
 		CED1934D23193116009B0E80 /* FileNotebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1934C23193116009B0E80 /* FileNotebook.swift */; };
-		CED1934F23193153009B0E80 /* NotesExtencion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1934E23193153009B0E80 /* NotesExtencion.swift */; };
+		CED1934F23193153009B0E80 /* NotesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1934E23193153009B0E80 /* NotesExtension.swift */; };
 		CED193572319451C009B0E80 /* NotesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED193562319451C009B0E80 /* NotesDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,11 +38,13 @@
 		CE442E242319AEFC008D31F2 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		CE52EC46232510C400D25AC5 /* UIColorHexValueExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHexValueExtension.swift; sourceTree = "<group>"; };
 		CE52EC492325136000D25AC5 /* ColorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDelegate.swift; sourceTree = "<group>"; };
+		CE52EC4C232546C500D25AC5 /* NotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
+		CE52EC4E232579D100D25AC5 /* PassNoteDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassNoteDelegate.swift; sourceTree = "<group>"; };
 		CEAB782C231AEB0200F3ED83 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		CEAB782D231AEB0200F3ED83 /* ColorPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
 		CED1934A231930D2009B0E80 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		CED1934C23193116009B0E80 /* FileNotebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileNotebook.swift; sourceTree = "<group>"; };
-		CED1934E23193153009B0E80 /* NotesExtencion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesExtencion.swift; sourceTree = "<group>"; };
+		CED1934E23193153009B0E80 /* NotesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesExtension.swift; sourceTree = "<group>"; };
 		CED193562319451C009B0E80 /* NotesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				CE52EC46232510C400D25AC5 /* UIColorHexValueExtension.swift */,
+				CED1934E23193153009B0E80 /* NotesExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -109,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				CE52EC492325136000D25AC5 /* ColorDelegate.swift */,
+				CE52EC4E232579D100D25AC5 /* PassNoteDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -128,6 +134,7 @@
 				CE360365231838990012BB08 /* AllNotesViewController.swift */,
 				CED193562319451C009B0E80 /* NotesDetailViewController.swift */,
 				CEAB782C231AEB0200F3ED83 /* ColorPickerViewController.swift */,
+				CE52EC4C232546C500D25AC5 /* NotesTableViewCell.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -136,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				CED1934A231930D2009B0E80 /* Note.swift */,
-				CED1934E23193153009B0E80 /* NotesExtencion.swift */,
 				CED1934C23193116009B0E80 /* FileNotebook.swift */,
 			);
 			path = Model;
@@ -237,15 +243,17 @@
 			files = (
 				CE52EC4A2325136000D25AC5 /* ColorDelegate.swift in Sources */,
 				CE442E252319AEFC008D31F2 /* ColorPickerView.swift in Sources */,
-				CED1934F23193153009B0E80 /* NotesExtencion.swift in Sources */,
+				CED1934F23193153009B0E80 /* NotesExtension.swift in Sources */,
 				CEAB782E231AEB0200F3ED83 /* ColorPickerViewController.swift in Sources */,
 				CE360366231838990012BB08 /* AllNotesViewController.swift in Sources */,
 				CE52EC47232510C400D25AC5 /* UIColorHexValueExtension.swift in Sources */,
 				CE360364231838990012BB08 /* AppDelegate.swift in Sources */,
+				CE52EC4F232579D100D25AC5 /* PassNoteDelegate.swift in Sources */,
 				CED1934D23193116009B0E80 /* FileNotebook.swift in Sources */,
 				CED193572319451C009B0E80 /* NotesDetailViewController.swift in Sources */,
 				CE442E232319AEA2008D31F2 /* PaletteView.swift in Sources */,
 				CED1934B231930D2009B0E80 /* Note.swift in Sources */,
+				CE52EC4D232546C500D25AC5 /* NotesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

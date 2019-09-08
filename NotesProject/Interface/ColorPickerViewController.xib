@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="colorPicker" destination="8fp-b3-1W2" id="ZLR-pG-BlH"/>
                 <outlet property="currentColorPaletteView" destination="ePP-ND-kVQ" id="iep-ZM-caR"/>
+                <outlet property="hexValueLabel" destination="Cbz-MI-0qz" id="OgS-mH-Kbs"/>
                 <outlet property="slider" destination="hik-dB-3gv" id="Xa8-9N-S6y"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

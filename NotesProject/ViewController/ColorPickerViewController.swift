@@ -10,6 +10,7 @@ import UIKit
 
 class ColorPickerViewController: UIViewController {
 
+    @IBOutlet weak var hexValueLabel: UILabel!
     @IBOutlet weak var currentColorPaletteView: PaletteView!
     @IBOutlet weak var colorPicker: ColorPickerView!
     @IBOutlet weak var slider: UISlider!
@@ -49,8 +50,10 @@ class ColorPickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //TODO: center picker in colorPickerView
-        lastTappedPoint = colorPicker.center
+        lastTappedPoint = CGPoint(
+            x: colorPicker.bounds.midX,
+            y: colorPicker.bounds.midY
+        )
         colorPicker.pickerPosition = (lastTappedPoint.x, lastTappedPoint.y)
         colorPicker.valueOfDimming = slider.value
         updateCurrentPaletteColor(for: lastTappedPoint)
@@ -59,5 +62,6 @@ class ColorPickerViewController: UIViewController {
     private func updateCurrentPaletteColor(for point: CGPoint) {
         let color = colorPicker.getColor(in: point)
         currentColorPaletteView.backgroundColor = color
+        hexValueLabel.text = currentColorPaletteView.backgroundColor?.hexValue
     }
 }

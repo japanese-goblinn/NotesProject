@@ -24,67 +24,121 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brightness:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfh-wa-tks">
-                    <rect key="frame" x="180" y="103" width="86.5" height="20.5"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hik-dB-3gv">
-                    <rect key="frame" x="154" y="160" width="242" height="31"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <connections>
-                        <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="iEy-3R-xZm"/>
-                    </connections>
-                </slider>
-                <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ePP-ND-kVQ" customClass="PaletteView" customModule="NotesProject" customModuleProvider="target">
-                    <rect key="frame" x="32" y="79" width="106" height="129"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Iz-aa-UXK">
+                    <rect key="frame" x="0.0" y="44" width="414" height="782"/>
                     <subviews>
-                        <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nd0-7T-8Kv" customClass="PaletteView" customModule="NotesProject" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="91" width="106" height="46"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OjX-sm-TQs">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="767"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#asdasd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbz-MI-0qz">
-                                    <rect key="frame" x="20" y="8" width="66" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hik-dB-3gv">
+                                    <rect key="frame" x="160" y="108.5" width="236" height="31"/>
+                                    <connections>
+                                        <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="iEy-3R-xZm"/>
+                                    </connections>
+                                </slider>
+                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePP-ND-kVQ" customClass="PaletteView" customModule="NotesProject" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="20" width="100" height="130"/>
+                                    <subviews>
+                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nd0-7T-8Kv" customClass="PaletteView" customModule="NotesProject" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="91" width="100" height="46"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#asdasd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbz-MI-0qz">
+                                                    <rect key="frame" x="17.5" y="8" width="65.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="Cbz-MI-0qz" firstAttribute="centerX" secondItem="nd0-7T-8Kv" secondAttribute="centerX" id="56A-JT-QER"/>
+                                                <constraint firstItem="Cbz-MI-0qz" firstAttribute="top" secondItem="nd0-7T-8Kv" secondAttribute="top" constant="8" id="6O4-9D-ysz"/>
+                                                <constraint firstAttribute="height" constant="46" id="CPf-6g-z0T"/>
+                                                <constraint firstItem="Cbz-MI-0qz" firstAttribute="centerX" secondItem="nd0-7T-8Kv" secondAttribute="centerX" id="sBv-Zj-wPa"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedCorners" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="2"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="100" id="3EI-4G-myE"/>
+                                        <constraint firstItem="nd0-7T-8Kv" firstAttribute="centerX" secondItem="ePP-ND-kVQ" secondAttribute="centerX" id="JRA-Jf-927"/>
+                                        <constraint firstItem="nd0-7T-8Kv" firstAttribute="width" secondItem="ePP-ND-kVQ" secondAttribute="width" id="TcT-OX-yxa"/>
+                                        <constraint firstAttribute="height" constant="130" id="icO-Ph-JlT"/>
+                                        <constraint firstAttribute="bottom" secondItem="nd0-7T-8Kv" secondAttribute="bottom" constant="-7" id="tTO-jf-dlS"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedCorners" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fp-b3-1W2" customClass="ColorPickerView" customModule="NotesProject" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="180" width="374" height="472"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <gestureRecognizers/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="472" id="pKw-QT-XnE"/>
+                                    </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="bkM-eu-vmW" appends="YES" id="0nf-cc-YqB"/>
+                                        <outletCollection property="gestureRecognizers" destination="WLT-XF-Z0b" appends="YES" id="qVJ-rN-x1b"/>
+                                    </connections>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPB-vm-eZE">
+                                    <rect key="frame" x="188.5" y="697" width="37" height="30"/>
+                                    <state key="normal" title="Done"/>
+                                    <connections>
+                                        <action selector="dismiss:" destination="-1" eventType="touchUpInside" id="ahL-FR-2Hh"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brightness:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfh-wa-tks">
+                                    <rect key="frame" x="162" y="74.5" width="87" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedCorners" value="NO"/>
-                            </userDefinedRuntimeAttributes>
+                            <constraints>
+                                <constraint firstItem="ePP-ND-kVQ" firstAttribute="leading" secondItem="OjX-sm-TQs" secondAttribute="leading" constant="20" id="2O9-e0-50g"/>
+                                <constraint firstItem="hik-dB-3gv" firstAttribute="leading" secondItem="zfh-wa-tks" secondAttribute="leading" id="2uJ-IJ-oYh"/>
+                                <constraint firstItem="iPB-vm-eZE" firstAttribute="top" secondItem="8fp-b3-1W2" secondAttribute="bottom" constant="45" id="MDq-gb-FaX"/>
+                                <constraint firstItem="8fp-b3-1W2" firstAttribute="centerX" secondItem="OjX-sm-TQs" secondAttribute="centerX" id="PBH-6l-6wC"/>
+                                <constraint firstItem="ePP-ND-kVQ" firstAttribute="top" secondItem="OjX-sm-TQs" secondAttribute="top" constant="20" id="Tbo-Ld-Vc8"/>
+                                <constraint firstItem="hik-dB-3gv" firstAttribute="top" secondItem="zfh-wa-tks" secondAttribute="bottom" constant="13" id="cOY-Rh-IcY"/>
+                                <constraint firstItem="zfh-wa-tks" firstAttribute="centerY" secondItem="ePP-ND-kVQ" secondAttribute="centerY" id="gRu-TE-R2g"/>
+                                <constraint firstItem="8fp-b3-1W2" firstAttribute="leading" secondItem="OjX-sm-TQs" secondAttribute="leading" constant="20" id="hfH-TR-WN8"/>
+                                <constraint firstAttribute="trailing" secondItem="hik-dB-3gv" secondAttribute="trailing" constant="20" id="iIR-CD-CiV"/>
+                                <constraint firstItem="zfh-wa-tks" firstAttribute="leading" secondItem="ePP-ND-kVQ" secondAttribute="trailing" constant="42" id="lv3-me-uoj"/>
+                                <constraint firstItem="8fp-b3-1W2" firstAttribute="top" secondItem="ePP-ND-kVQ" secondAttribute="bottom" constant="30" id="ro3-4q-WcY"/>
+                                <constraint firstItem="iPB-vm-eZE" firstAttribute="centerX" secondItem="8fp-b3-1W2" secondAttribute="centerX" id="tvu-Ul-vzO"/>
+                                <constraint firstAttribute="bottom" secondItem="iPB-vm-eZE" secondAttribute="bottom" constant="40" id="vyb-GA-TBP"/>
+                            </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedCorners" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8fp-b3-1W2" customClass="ColorPickerView" customModule="NotesProject" customModuleProvider="target">
-                    <rect key="frame" x="32" y="244" width="362" height="472"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <gestureRecognizers/>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="bkM-eu-vmW" appends="YES" id="0nf-cc-YqB"/>
-                        <outletCollection property="gestureRecognizers" destination="WLT-XF-Z0b" appends="YES" id="qVJ-rN-x1b"/>
-                    </connections>
-                </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPB-vm-eZE">
-                    <rect key="frame" x="189" y="777" width="37" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Done"/>
-                    <connections>
-                        <action selector="dismiss:" destination="-1" eventType="touchUpInside" id="ahL-FR-2Hh"/>
-                    </connections>
-                </button>
+                    <constraints>
+                        <constraint firstItem="OjX-sm-TQs" firstAttribute="leading" secondItem="1Iz-aa-UXK" secondAttribute="leading" id="1Hw-nY-ANn"/>
+                        <constraint firstItem="OjX-sm-TQs" firstAttribute="top" secondItem="1Iz-aa-UXK" secondAttribute="top" id="huD-eD-ZNe"/>
+                        <constraint firstAttribute="bottom" secondItem="OjX-sm-TQs" secondAttribute="bottom" id="kIA-M6-Ecp"/>
+                        <constraint firstAttribute="trailing" secondItem="OjX-sm-TQs" secondAttribute="trailing" id="rKt-0W-QzD"/>
+                        <constraint firstItem="OjX-sm-TQs" firstAttribute="width" secondItem="1Iz-aa-UXK" secondAttribute="width" id="t7J-eM-WP4"/>
+                    </constraints>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="1Iz-aa-UXK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="372-WB-NEZ"/>
+                <constraint firstItem="1Iz-aa-UXK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="CHy-zN-uKj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1Iz-aa-UXK" secondAttribute="trailing" id="Kim-6w-IXb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="1Iz-aa-UXK" secondAttribute="bottom" constant="36" id="fA1-Z8-hoT"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
         </view>

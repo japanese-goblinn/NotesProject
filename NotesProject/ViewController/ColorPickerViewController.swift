@@ -18,12 +18,12 @@ class ColorPickerViewController: UIViewController {
     weak var delegate: Colorable?
     
     var passedFromLastVC = false
-    lazy var lastTappedPoint: CGPoint = CGPoint.zero
+    var lastInteractedPoint: CGPoint = .zero
     var brightnessValue: Float = 0.0
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         colorPicker.valueOfDimming = sender.value
-        updateCurrentPaletteColor(for: lastTappedPoint)
+        updateCurrentPaletteColor(for: lastInteractedPoint)
     }
     
     @IBAction func pickerDragged(_ sender: UIPanGestureRecognizer) {
@@ -32,20 +32,20 @@ class ColorPickerViewController: UIViewController {
         let point = sender.location(in: colorPicker)
         if view.point(inside: point, with: nil) {
             let (x, y) = view.pickerPosition
-            lastTappedPoint = CGPoint(
+            lastInteractedPoint = CGPoint(
                 x: x + translation.x,
                 y: y + translation.y
             )
-            view.pickerPosition = (lastTappedPoint.x, lastTappedPoint.y)
-            updateCurrentPaletteColor(for: lastTappedPoint)
+            view.pickerPosition = (lastInteractedPoint.x, lastInteractedPoint.y)
+            updateCurrentPaletteColor(for: lastInteractedPoint)
             sender.setTranslation(CGPoint.zero, in: colorPicker)
         }
     }
     
     @IBAction func pickerTapped(_ sender: UITapGestureRecognizer) {
-        lastTappedPoint = sender.location(in: colorPicker)
-        colorPicker.pickerPosition = (lastTappedPoint.x, lastTappedPoint.y)
-        updateCurrentPaletteColor(for: lastTappedPoint)
+        lastInteractedPoint = sender.location(in: colorPicker)
+        colorPicker.pickerPosition = (lastInteractedPoint.x, lastInteractedPoint.y)
+        updateCurrentPaletteColor(for: lastInteractedPoint)
     }
     
     @IBAction func dismiss(_ sender: UIButton) {
@@ -57,14 +57,19 @@ class ColorPickerViewController: UIViewController {
         if passedFromLastVC {
             slider.value = brightnessValue
         } else {
-            lastTappedPoint = CGPoint(
+            lastInteractedPoint = CGPoint(
                 x: colorPicker.bounds.midX,
                 y: colorPicker.bounds.midY
             )
         }
-        colorPicker.pickerPosition = (lastTappedPoint.x, lastTappedPoint.y)
+        colorPicker.pickerPosition = (lastInteractedPoint.x, lastInteractedPoint.y)
         colorPicker.valueOfDimming = slider.value
-        updateCurrentPaletteColor(for: lastTappedPoint)
+        updateCurrentPaletteColor(for: lastInteractedPoint)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        colorPicker.setNeedsDisplay()
     }
     
     func updateCurrentPaletteColor(for point: CGPoint) {
@@ -72,6 +77,6 @@ class ColorPickerViewController: UIViewController {
         currentColorPaletteView.backgroundColor = color
         hexValueLabel.text = currentColorPaletteView.backgroundColor?.hexValue
         delegate?.passValue(of: color)
-        delegate?.passValue(of: lastTappedPoint, and: slider.value)
+        delegate?.passValue(of: lastInteractedPoint, and: slider.value)
     }
 }

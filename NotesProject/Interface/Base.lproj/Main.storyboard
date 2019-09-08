@@ -131,6 +131,9 @@
                                                                 <gestureRecognizers/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isChosen" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="2"/>
+                                                                    </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <outletCollection property="gestureRecognizers" destination="OJW-OJ-UCt" appends="YES" id="Xce-eQ-WfO"/>
@@ -140,6 +143,11 @@
                                                                 <rect key="frame" x="101.5" y="0.0" width="70" height="70"/>
                                                                 <color key="backgroundColor" red="0.79494938380000002" green="0.1506932218" blue="0.1207086268" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <gestureRecognizers/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="2"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <outletCollection property="gestureRecognizers" destination="KVs-gk-q5s" appends="YES" id="Tpz-FP-QXh"/>
                                                                 </connections>
@@ -148,6 +156,11 @@
                                                                 <rect key="frame" x="203.5" y="0.0" width="70" height="70"/>
                                                                 <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <gestureRecognizers/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="2"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <outletCollection property="gestureRecognizers" destination="FOD-RN-HGE" appends="YES" id="Hn5-2E-29n"/>
                                                                 </connections>
@@ -162,6 +175,9 @@
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isGradient" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="2"/>
+                                                                    </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <outletCollection property="gestureRecognizers" destination="G5h-3d-WqU" appends="YES" id="cup-m9-xlf"/>

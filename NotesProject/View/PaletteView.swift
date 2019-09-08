@@ -15,6 +15,7 @@ class PaletteView: UIView {
     @IBInspectable var isChosen: Bool = false
     @IBInspectable var isGradient: Bool = false
     @IBInspectable var isRoundedCorners: Bool = false
+    @IBInspectable var borderWidth: CGFloat = 0
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
@@ -36,7 +37,7 @@ class PaletteView: UIView {
     }
     
     private func drawBorders() {
-        layer.borderWidth = 2
+        layer.borderWidth = borderWidth
         layer.borderColor = UIColor.black.cgColor
     }
     

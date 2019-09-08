@@ -18,6 +18,7 @@ class NotesDetailViewController: UIViewController {
     @IBOutlet weak var contentTextView: UITextView!
     
     var lastColorChoosed: PaletteView!
+    
     var pickerCoordinates: CGPoint = .zero
     var brightnessValue: Float = 0.0
     
@@ -52,7 +53,7 @@ class NotesDetailViewController: UIViewController {
         let colorPickerVC = ColorPickerViewController()
         if !lastColorChoosed.isGradient {
             colorPickerVC.passedFromLastVC = true
-            colorPickerVC.lastTappedPoint = pickerCoordinates
+            colorPickerVC.lastInteractedPoint = pickerCoordinates
             colorPickerVC.brightnessValue = brightnessValue
         }
         present(colorPickerVC, animated: true)

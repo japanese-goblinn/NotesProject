@@ -15,6 +15,7 @@
 		CE442E232319AEA2008D31F2 /* PaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE442E222319AEA2008D31F2 /* PaletteView.swift */; };
 		CE442E252319AEFC008D31F2 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE442E242319AEFC008D31F2 /* ColorPickerView.swift */; };
 		CE52EC47232510C400D25AC5 /* UIColorHexValueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52EC46232510C400D25AC5 /* UIColorHexValueExtension.swift */; };
+		CE52EC4A2325136000D25AC5 /* ColorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52EC492325136000D25AC5 /* ColorDelegate.swift */; };
 		CEAB782E231AEB0200F3ED83 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB782C231AEB0200F3ED83 /* ColorPickerViewController.swift */; };
 		CEAB782F231AEB0200F3ED83 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAB782D231AEB0200F3ED83 /* ColorPickerViewController.xib */; };
 		CED1934B231930D2009B0E80 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1934A231930D2009B0E80 /* Note.swift */; };
@@ -34,6 +35,7 @@
 		CE442E222319AEA2008D31F2 /* PaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteView.swift; sourceTree = "<group>"; };
 		CE442E242319AEFC008D31F2 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		CE52EC46232510C400D25AC5 /* UIColorHexValueExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHexValueExtension.swift; sourceTree = "<group>"; };
+		CE52EC492325136000D25AC5 /* ColorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDelegate.swift; sourceTree = "<group>"; };
 		CEAB782C231AEB0200F3ED83 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		CEAB782D231AEB0200F3ED83 /* ColorPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
 		CED1934A231930D2009B0E80 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				CE442E262319AF14008D31F2 /* View */,
+				CE52EC4B2325136500D25AC5 /* Delegates */,
 				CE52EC48232510E500D25AC5 /* Extensions */,
 				CED19350231931B1009B0E80 /* Model */,
 				CED19349231930AA009B0E80 /* ViewController */,
@@ -100,6 +103,14 @@
 				CE52EC46232510C400D25AC5 /* UIColorHexValueExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CE52EC4B2325136500D25AC5 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				CE52EC492325136000D25AC5 /* ColorDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		CEAB782B231AEAE000F3ED83 /* Interface */ = {
@@ -224,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE52EC4A2325136000D25AC5 /* ColorDelegate.swift in Sources */,
 				CE442E252319AEFC008D31F2 /* ColorPickerView.swift in Sources */,
 				CED1934F23193153009B0E80 /* NotesExtencion.swift in Sources */,
 				CEAB782E231AEB0200F3ED83 /* ColorPickerViewController.swift in Sources */,

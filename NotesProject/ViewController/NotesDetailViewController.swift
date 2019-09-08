@@ -18,6 +18,8 @@ class NotesDetailViewController: UIViewController {
     @IBOutlet weak var contentTextView: UITextView!
     
     var lastColorChoosed: PaletteView!
+    var pickerCoordinates: CGPoint = .zero
+    var brightnessValue: Float = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +50,13 @@ class NotesDetailViewController: UIViewController {
     @IBAction func chooseCustomColor(_ sender: UITapGestureRecognizer) {
         chooseColor(sender)
         let colorPickerVC = ColorPickerViewController()
+        if !lastColorChoosed.isGradient {
+            colorPickerVC.passedFromLastVC = true
+            colorPickerVC.lastTappedPoint = pickerCoordinates
+            colorPickerVC.brightnessValue = brightnessValue
+        }
         present(colorPickerVC, animated: true)
+        colorPickerVC.delegate = self
     }
     
     @IBAction func hideKeyboard(_ sender: Any) {
@@ -123,6 +131,20 @@ extension NotesDetailViewController: UITextFieldDelegate {
     internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         titleTextField.endEditing(true)
         return false
+    }
+    
+}
+
+extension NotesDetailViewController: Colorable {
+    
+    func passValue(of coordinates: CGPoint, and brightness: Float) {
+        pickerCoordinates = coordinates
+        brightnessValue = brightness
+    }
+    
+    func passValue(of color: UIColor) {
+        lastColorChoosed.backgroundColor = color
+        lastColorChoosed.isGradient = false
     }
     
 }

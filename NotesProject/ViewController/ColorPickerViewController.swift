@@ -15,7 +15,11 @@ class ColorPickerViewController: UIViewController {
     @IBOutlet weak var colorPicker: ColorPickerView!
     @IBOutlet weak var slider: UISlider!
     
-    private lazy var lastTappedPoint: CGPoint = CGPoint.zero
+    weak var delegate: Colorable?
+    
+    var passedFromLastVC = false
+    lazy var lastTappedPoint: CGPoint = CGPoint.zero
+    var brightnessValue: Float = 0.0
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         colorPicker.valueOfDimming = sender.value
@@ -50,18 +54,24 @@ class ColorPickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        lastTappedPoint = CGPoint(
-            x: colorPicker.bounds.midX,
-            y: colorPicker.bounds.midY
-        )
+        if passedFromLastVC {
+            slider.value = brightnessValue
+        } else {
+            lastTappedPoint = CGPoint(
+                x: colorPicker.bounds.midX,
+                y: colorPicker.bounds.midY
+            )
+        }
         colorPicker.pickerPosition = (lastTappedPoint.x, lastTappedPoint.y)
         colorPicker.valueOfDimming = slider.value
         updateCurrentPaletteColor(for: lastTappedPoint)
     }
     
-    private func updateCurrentPaletteColor(for point: CGPoint) {
+    func updateCurrentPaletteColor(for point: CGPoint) {
         let color = colorPicker.getColor(in: point)
         currentColorPaletteView.backgroundColor = color
         hexValueLabel.text = currentColorPaletteView.backgroundColor?.hexValue
+        delegate?.passValue(of: color)
+        delegate?.passValue(of: lastTappedPoint, and: slider.value)
     }
 }

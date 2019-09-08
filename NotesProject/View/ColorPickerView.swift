@@ -10,7 +10,7 @@ import UIKit
 import CoreGraphics
 
 
-//TODO: Global refactor this class to be separate component
+//TODO: Global refactor this class to be a separate component
 @IBDesignable
 class ColorPickerView: UIView {
     
@@ -88,6 +88,25 @@ class ColorPickerView: UIView {
             end: CGPoint(x: 0, y: self.bounds.height),
             options: []
         )
+    }
+    
+    func getPoint(for color: UIColor) -> CGPoint {
+        var hue: CGFloat = 0.0
+        var saturation: CGFloat = 0.0
+        var brightness: CGFloat = 0.0
+        color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: nil);
+        
+        var yPos:CGFloat = 0
+        let halfHeight = (self.bounds.height / 2)
+        if (brightness >= 0.99) {
+            let percentageY = powf(Float(saturation), 1.0 / 2.0)
+            yPos = CGFloat(percentageY) * halfHeight
+        } else {
+            //use brightness to get Y
+            yPos = halfHeight + halfHeight * (1.0 - brightness)
+        }
+        let xPos = hue * self.bounds.width
+        return CGPoint(x: xPos, y: yPos)
     }
     
     func getColor(in point: CGPoint) -> UIColor {

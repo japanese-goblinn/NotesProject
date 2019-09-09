@@ -35,6 +35,7 @@ class AllNotesViewController: UIViewController {
     }
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         if let controller = segue.destination as? NotesDetailViewController,
             segue.identifier == "showNote" {
                 controller.note = selectedNote

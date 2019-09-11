@@ -174,7 +174,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
-                                                                    <outletCollection property="gestureRecognizers" destination="OJW-OJ-UCt" appends="YES" id="Xce-eQ-WfO"/>
+                                                                    <outletCollection property="gestureRecognizers" destination="S7x-Sq-doW" appends="YES" id="AU9-6c-uMr"/>
                                                                 </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mLa-Sb-xk0" customClass="PaletteView" customModule="NotesProject" customModuleProvider="target">
@@ -187,7 +187,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
-                                                                    <outletCollection property="gestureRecognizers" destination="KVs-gk-q5s" appends="YES" id="Tpz-FP-QXh"/>
+                                                                    <outletCollection property="gestureRecognizers" destination="0lG-s3-3iz" appends="YES" id="6qq-gk-ei0"/>
                                                                 </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U3q-WN-LvA" customClass="PaletteView" customModule="NotesProject" customModuleProvider="target">
@@ -200,7 +200,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
-                                                                    <outletCollection property="gestureRecognizers" destination="FOD-RN-HGE" appends="YES" id="Hn5-2E-29n"/>
+                                                                    <outletCollection property="gestureRecognizers" destination="wM7-Kb-N9V" appends="YES" id="mic-Id-1uV"/>
                                                                 </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUB-Yi-spA" customClass="PaletteView" customModule="NotesProject" customModuleProvider="target">
@@ -266,21 +266,18 @@
                             <constraint firstItem="vRQ-Em-qBd" firstAttribute="bottom" secondItem="3tS-Or-9vu" secondAttribute="bottom" id="t5D-Cq-fhw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vRQ-Em-qBd"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="NWb-r8-m9U" appends="YES" id="RvK-bs-DOc"/>
-                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="zDv-Hs-a9v"/>
                     <connections>
                         <outlet property="contentTextView" destination="IUs-uX-ae8" id="9Cr-xl-L4y"/>
-                        <outlet property="customColor" destination="xUB-Yi-spA" id="hEH-JQ-dIF"/>
                         <outlet property="datePicker" destination="M7r-oN-2dq" id="mf2-ZJ-JfV"/>
-                        <outlet property="firstColor" destination="Obz-BT-zhy" id="jYf-SF-g4F"/>
                         <outlet property="pickerContainerView" destination="Erg-Fn-In4" id="CKY-ez-k2d"/>
                         <outlet property="scrollView" destination="3tS-Or-9vu" id="cVW-5Y-ee1"/>
-                        <outlet property="secondColor" destination="mLa-Sb-xk0" id="mAa-po-O9l"/>
-                        <outlet property="thirdColorView" destination="U3q-WN-LvA" id="ZSo-JQ-o4y"/>
                         <outlet property="titleTextField" destination="r3d-5Z-ptt" id="acl-Dd-Zde"/>
+                        <outletCollection property="paletteViews" destination="Obz-BT-zhy" collectionClass="NSMutableArray" id="zG5-qK-Pum"/>
+                        <outletCollection property="paletteViews" destination="mLa-Sb-xk0" collectionClass="NSMutableArray" id="pcq-jR-xMd"/>
+                        <outletCollection property="paletteViews" destination="U3q-WN-LvA" collectionClass="NSMutableArray" id="7jp-wq-8CA"/>
+                        <outletCollection property="paletteViews" destination="xUB-Yi-spA" collectionClass="NSMutableArray" id="8Nx-i8-syn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UEg-3o-NRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -289,25 +286,19 @@
                         <action selector="chooseCustomColor:" destination="89t-FQ-9iR" id="zI7-bB-xTR"/>
                     </connections>
                 </pongPressGestureRecognizer>
-                <tapGestureRecognizer id="OJW-OJ-UCt">
+                <tapGestureRecognizer id="S7x-Sq-doW">
                     <connections>
-                        <action selector="chooseFirstColor:" destination="89t-FQ-9iR" id="w74-Le-2XK"/>
+                        <action selector="chooseSimpleColor:" destination="89t-FQ-9iR" id="P0a-mF-lPy"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="KVs-gk-q5s">
+                <tapGestureRecognizer id="0lG-s3-3iz">
                     <connections>
-                        <action selector="chooseSecondColor:" destination="89t-FQ-9iR" id="2W3-4g-bWs"/>
+                        <action selector="chooseSimpleColor:" destination="89t-FQ-9iR" id="nWK-5O-7Re"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="FOD-RN-HGE">
+                <tapGestureRecognizer id="wM7-Kb-N9V">
                     <connections>
-                        <action selector="chooseThirdColor:" destination="89t-FQ-9iR" id="od9-sg-13E"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="NWb-r8-m9U">
-                    <connections>
-                        <action selector="hideKeyboard:" destination="89t-FQ-9iR" id="50g-Vx-abP"/>
-                        <outlet property="delegate" destination="OVN-lL-2e8" id="vXi-wN-WIr"/>
+                        <action selector="chooseSimpleColor:" destination="89t-FQ-9iR" id="anP-fs-bkF"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

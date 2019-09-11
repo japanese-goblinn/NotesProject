@@ -10,6 +10,7 @@ import UIKit
 
 class NotesDetailViewController: UIViewController {
 
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var pickerContainerView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -17,11 +18,8 @@ class NotesDetailViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentTextView: UITextView!
     
-    @IBOutlet weak var firstColor: PaletteView!
-    @IBOutlet var secondColor: PaletteView!
-    @IBOutlet var thirdColorView: PaletteView!
-    @IBOutlet var customColor: PaletteView!
-    var lastColorChoosedView: PaletteView!
+    @IBOutlet var paletteViews: [PaletteView]!
+    var lastChoosedPaletteView: PaletteView!
     
     weak var delegate: Noteable?
     
@@ -37,35 +35,20 @@ class NotesDetailViewController: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        lastColorChoosedView.setNeedsDisplay()
+        lastChoosedPaletteView.setNeedsDisplay()
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
-    @IBAction func chooseFirstColor(_ sender: UITapGestureRecognizer) {
-        chooseColor(for: sender.view as? PaletteView)
-    }
-    
-    @IBAction func chooseSecondColor(_ sender: UITapGestureRecognizer) {
-        chooseColor(for: sender.view as? PaletteView)
-    }
-    
-    @IBAction func chooseThirdColor(_ sender: UITapGestureRecognizer) {
+    @IBAction func chooseSimpleColor(_ sender: UITapGestureRecognizer) {
         chooseColor(for: sender.view as? PaletteView)
     }
     
     @IBAction func chooseCustomColor(_ sender: UITapGestureRecognizer) {
         chooseColor(for: sender.view as? PaletteView)
-        let colorPickerVC = ColorPickerViewController()
-        if !lastColorChoosedView.isGradient {
-            colorPickerVC.passedFromLastVC = true
-            colorPickerVC.lastInteractedPoint = pickerCoordinates
-            colorPickerVC.brightnessValue = brightnessValue
-        }
-        present(colorPickerVC, animated: true)
-        colorPickerVC.delegate = self
+        showColorPickerViewController()
     }
     
     @IBAction func hideKeyboard(_ sender: Any) {
@@ -118,13 +101,24 @@ class NotesDetailViewController: UIViewController {
         scrollView.scrollIndicatorInsets.bottom += adjustmentHeight
     }
     
+    private func showColorPickerViewController() {
+        let colorPickerVC = ColorPickerViewController()
+        if !lastChoosedPaletteView.isGradient {
+            colorPickerVC.passedFromLastVC = true
+            colorPickerVC.lastInteractedPoint = pickerCoordinates
+            colorPickerVC.brightnessValue = brightnessValue
+        }
+        present(colorPickerVC, animated: true)
+        colorPickerVC.delegate = self
+    }
+    
     private func saveNote() {
         note = Note(
             title: titleTextField.text ?? " ",
             content: contentTextView.text,
             date: nil,
             uid: UUID().uuidString,
-            color: lastColorChoosedView.backgroundColor ?? .white,
+            color: lastChoosedPaletteView.backgroundColor ?? .white,
             priority: .general
         )
         if let note = note {
@@ -133,7 +127,7 @@ class NotesDetailViewController: UIViewController {
     }
     
     private func activateStartStates() {
-        lastColorChoosedView = firstColor
+        lastChoosedPaletteView = paletteViews.first
         titleTextField.delegate = self
         guard let note = note else { return }
         titleTextField.text = note.title
@@ -145,24 +139,24 @@ class NotesDetailViewController: UIViewController {
     private func matchColor(for note: Note) {
         switch note.color {
         case .white:
-            chooseColor(for: firstColor)
+            chooseColor(for: paletteViews[0])
         case .red:
-            chooseColor(for: secondColor)
+            chooseColor(for: paletteViews[1])
         case .green:
-            chooseColor(for: thirdColorView)
+            chooseColor(for: paletteViews[2])
         default:
-            customColor.isGradient = false
-            chooseColor(for: customColor)
+            paletteViews[3].isGradient = false
+            chooseColor(for: paletteViews[3])
         }
     }
     
     private func chooseColor(for view: PaletteView?) {
         guard let view = view else { return }
-        lastColorChoosedView.isChosen = false
+        lastChoosedPaletteView.isChosen = false
         view.isChosen = true
         view.setNeedsDisplay()
-        lastColorChoosedView.setNeedsDisplay()
-        lastColorChoosedView = view
+        lastChoosedPaletteView.setNeedsDisplay()
+        lastChoosedPaletteView = view
     }
 }
 
@@ -183,8 +177,8 @@ extension NotesDetailViewController: Colorable {
     }
     
     func passValue(of color: UIColor) {
-        lastColorChoosedView.backgroundColor = color
-        lastColorChoosedView.isGradient = false
+        lastChoosedPaletteView.backgroundColor = color
+        lastChoosedPaletteView.isGradient = false
     }
     
 }

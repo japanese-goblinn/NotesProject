@@ -10,7 +10,7 @@ import UIKit
 import CoreGraphics
 
 
-//TODO: Global refactor this class to be a separate component
+#warning("Global refactor this class to be a separate component")
 @IBDesignable
 class ColorPickerView: UIView {
     

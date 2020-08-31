@@ -9,7 +9,7 @@
 import UIKit
 
 class ColorPickerViewController: UIViewController {
-
+    
     @IBOutlet weak var hexValueLabel: UILabel!
     @IBOutlet weak var currentColorPaletteView: PaletteView!
     @IBOutlet weak var colorPicker: ColorPickerView!

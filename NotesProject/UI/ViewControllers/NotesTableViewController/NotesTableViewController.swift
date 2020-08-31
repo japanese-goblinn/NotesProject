@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AllNotesViewController: UIViewController {
+class NotesTableViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
@@ -49,14 +49,14 @@ class AllNotesViewController: UIViewController {
 
 }
 
-extension AllNotesViewController: Noteable {
+extension NotesTableViewController: Noteable {
     func passNote(_ note: Note) {
         notebook.add(note)
         tableView.reloadData()
     }
 }
 
-extension AllNotesViewController: UITableViewDataSource {
+extension NotesTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notebook.notes.count
     }
@@ -73,7 +73,7 @@ extension AllNotesViewController: UITableViewDataSource {
 
 }
 
-extension AllNotesViewController: UITableViewDelegate {
+extension NotesTableViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         selectedNote = notebook.notes[indexPath.row]

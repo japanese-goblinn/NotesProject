@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE360364231838990012BB08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE360363231838990012BB08 /* AppDelegate.swift */; };
-		CE360366231838990012BB08 /* AllNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE360365231838990012BB08 /* AllNotesViewController.swift */; };
-		CE360369231838990012BB08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE360367231838990012BB08 /* Main.storyboard */; };
+		CE360366231838990012BB08 /* NotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE360365231838990012BB08 /* NotesTableViewController.swift */; };
 		CE36036B2318389C0012BB08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE36036A2318389C0012BB08 /* Assets.xcassets */; };
 		CE36036E2318389C0012BB08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE36036C2318389C0012BB08 /* LaunchScreen.storyboard */; };
 		CE442E232319AEA2008D31F2 /* PaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE442E222319AEA2008D31F2 /* PaletteView.swift */; };
@@ -18,6 +17,7 @@
 		CE52EC4A2325136000D25AC5 /* ColorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52EC492325136000D25AC5 /* ColorDelegate.swift */; };
 		CE52EC4D232546C500D25AC5 /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52EC4C232546C500D25AC5 /* NotesTableViewCell.swift */; };
 		CE52EC4F232579D100D25AC5 /* PassNoteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52EC4E232579D100D25AC5 /* PassNoteDelegate.swift */; };
+		CE93FBF924F6FA4F00058C54 /* NotesDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE93FBF824F6FA4F00058C54 /* NotesDetailViewController.xib */; };
 		CEAB782E231AEB0200F3ED83 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB782C231AEB0200F3ED83 /* ColorPickerViewController.swift */; };
 		CEAB782F231AEB0200F3ED83 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAB782D231AEB0200F3ED83 /* ColorPickerViewController.xib */; };
 		CED1934B231930D2009B0E80 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1934A231930D2009B0E80 /* Note.swift */; };
@@ -29,8 +29,7 @@
 /* Begin PBXFileReference section */
 		CE360360231838990012BB08 /* NotesProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotesProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE360363231838990012BB08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE360365231838990012BB08 /* AllNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNotesViewController.swift; sourceTree = "<group>"; };
-		CE360368231838990012BB08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE360365231838990012BB08 /* NotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewController.swift; sourceTree = "<group>"; };
 		CE36036A2318389C0012BB08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE36036D2318389C0012BB08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE36036F2318389C0012BB08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,6 +39,7 @@
 		CE52EC492325136000D25AC5 /* ColorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDelegate.swift; sourceTree = "<group>"; };
 		CE52EC4C232546C500D25AC5 /* NotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
 		CE52EC4E232579D100D25AC5 /* PassNoteDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassNoteDelegate.swift; sourceTree = "<group>"; };
+		CE93FBF824F6FA4F00058C54 /* NotesDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesDetailViewController.xib; sourceTree = "<group>"; };
 		CEAB782C231AEB0200F3ED83 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		CEAB782D231AEB0200F3ED83 /* ColorPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
 		CED1934A231930D2009B0E80 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
@@ -78,27 +78,24 @@
 		CE360362231838990012BB08 /* NotesProject */ = {
 			isa = PBXGroup;
 			children = (
-				CE442E262319AF14008D31F2 /* View */,
+				CED19350231931B1009B0E80 /* Model */,
 				CE52EC4B2325136500D25AC5 /* Delegates */,
 				CE52EC48232510E500D25AC5 /* Extensions */,
-				CED19350231931B1009B0E80 /* Model */,
-				CED19349231930AA009B0E80 /* ViewController */,
-				CEAB782B231AEAE000F3ED83 /* Interface */,
+				CE93FBF624F6F51A00058C54 /* UI */,
 				CE360363231838990012BB08 /* AppDelegate.swift */,
 				CE36036A2318389C0012BB08 /* Assets.xcassets */,
-				CE36036C2318389C0012BB08 /* LaunchScreen.storyboard */,
 				CE36036F2318389C0012BB08 /* Info.plist */,
 			);
 			path = NotesProject;
 			sourceTree = "<group>";
 		};
-		CE442E262319AF14008D31F2 /* View */ = {
+		CE442E262319AF14008D31F2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				CE442E242319AEFC008D31F2 /* ColorPickerView.swift */,
 				CE442E222319AEA2008D31F2 /* PaletteView.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CE52EC48232510E500D25AC5 /* Extensions */ = {
@@ -119,24 +116,51 @@
 			path = Delegates;
 			sourceTree = "<group>";
 		};
-		CEAB782B231AEAE000F3ED83 /* Interface */ = {
+		CE93FBF624F6F51A00058C54 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				CE360367231838990012BB08 /* Main.storyboard */,
-				CEAB782D231AEB0200F3ED83 /* ColorPickerViewController.xib */,
+				CE442E262319AF14008D31F2 /* Views */,
+				CED19349231930AA009B0E80 /* ViewControllers */,
+				CE36036C2318389C0012BB08 /* LaunchScreen.storyboard */,
 			);
-			path = Interface;
+			path = UI;
 			sourceTree = "<group>";
 		};
-		CED19349231930AA009B0E80 /* ViewController */ = {
+		CE93FBF724F6F59300058C54 /* ColorPickerViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CE360365231838990012BB08 /* AllNotesViewController.swift */,
-				CED193562319451C009B0E80 /* NotesDetailViewController.swift */,
 				CEAB782C231AEB0200F3ED83 /* ColorPickerViewController.swift */,
+				CEAB782D231AEB0200F3ED83 /* ColorPickerViewController.xib */,
+			);
+			path = ColorPickerViewController;
+			sourceTree = "<group>";
+		};
+		CE93FBFA24F6FADF00058C54 /* NotesDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CED193562319451C009B0E80 /* NotesDetailViewController.swift */,
+				CE93FBF824F6FA4F00058C54 /* NotesDetailViewController.xib */,
+			);
+			path = NotesDetailViewController;
+			sourceTree = "<group>";
+		};
+		CE93FBFD24F6FB8000058C54 /* NotesTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE360365231838990012BB08 /* NotesTableViewController.swift */,
 				CE52EC4C232546C500D25AC5 /* NotesTableViewCell.swift */,
 			);
-			path = ViewController;
+			path = NotesTableViewController;
+			sourceTree = "<group>";
+		};
+		CED19349231930AA009B0E80 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE93FBFD24F6FB8000058C54 /* NotesTableViewController */,
+				CE93FBFA24F6FADF00058C54 /* NotesDetailViewController */,
+				CE93FBF724F6F59300058C54 /* ColorPickerViewController */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		CED19350231931B1009B0E80 /* Model */ = {
@@ -209,8 +233,8 @@
 			files = (
 				CE36036E2318389C0012BB08 /* LaunchScreen.storyboard in Resources */,
 				CE36036B2318389C0012BB08 /* Assets.xcassets in Resources */,
+				CE93FBF924F6FA4F00058C54 /* NotesDetailViewController.xib in Resources */,
 				CEAB782F231AEB0200F3ED83 /* ColorPickerViewController.xib in Resources */,
-				CE360369231838990012BB08 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +269,7 @@
 				CE442E252319AEFC008D31F2 /* ColorPickerView.swift in Sources */,
 				CED1934F23193153009B0E80 /* NotesExtension.swift in Sources */,
 				CEAB782E231AEB0200F3ED83 /* ColorPickerViewController.swift in Sources */,
-				CE360366231838990012BB08 /* AllNotesViewController.swift in Sources */,
+				CE360366231838990012BB08 /* NotesTableViewController.swift in Sources */,
 				CE52EC47232510C400D25AC5 /* UIColorHexValueExtension.swift in Sources */,
 				CE360364231838990012BB08 /* AppDelegate.swift in Sources */,
 				CE52EC4F232579D100D25AC5 /* PassNoteDelegate.swift in Sources */,
@@ -260,14 +284,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CE360367231838990012BB08 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE360368231838990012BB08 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CE36036C2318389C0012BB08 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

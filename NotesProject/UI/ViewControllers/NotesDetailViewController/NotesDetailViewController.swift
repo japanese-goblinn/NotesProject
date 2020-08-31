@@ -9,7 +9,6 @@
 import UIKit
 
 class NotesDetailViewController: UIViewController {
-
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var pickerContainerView: UIView!
@@ -58,6 +57,7 @@ class NotesDetailViewController: UIViewController {
     }
     
     @IBAction func enableSwitch(_ sender: UISwitch) {
+        #warning("Remove completion")
         UIView.animate(
             withDuration: 0.3,
             delay: 0,
